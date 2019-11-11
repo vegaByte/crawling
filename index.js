@@ -12,7 +12,9 @@ const crawler = new Crawler({
     origin: defaultTrip.origin,
     destination: defaultTrip.destination,
     date: defaultTrip.date
-  })
+  }),
+  timeToLoad: reservamosConf.TIME_TO_LOAD,
+  selectors: reservamosConf.selectors
 })
 
 crawler.spider()

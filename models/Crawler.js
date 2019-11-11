@@ -5,18 +5,18 @@ const sleep = require('../libs/helpers').sleep
 
 class Crawler {
   constructor(args){
-    this.instance = null
     this.url = args.url
+    this.timeToLoad = args.timeToLoad
 
+    this.page = null
+    this.browser = null
     console.log({args})
 
     this.spider = this.spider.bind(this)
   }
 
   spider(){
-    let page
-    let browser
-    const { url } = this
+    const { page, browser, url, timeToLoad } = this
 
     puppeteer
       .launch()
@@ -27,7 +27,7 @@ class Crawler {
       .then(function(_page) {
         page = _page
         return page.goto(url).then(function() {
-          return sleep(8000)
+          return sleep(timeToLoad)
         });
       })
       .then(function () {
@@ -57,7 +57,6 @@ class Crawler {
         console.log('ERROR', err)
         browser.close()
       });
-
   }
 };
 
