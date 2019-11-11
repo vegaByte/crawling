@@ -8,6 +8,8 @@ const defaultTrip = {
 }
 
 const crawler = new Crawler({
+  name: reservamosConf.name,
+  trip: defaultTrip,
   url: reservamosConf.url({
     origin: defaultTrip.origin,
     destination: defaultTrip.destination,
@@ -17,4 +19,7 @@ const crawler = new Crawler({
   selectors: reservamosConf.selectors
 })
 
-crawler.spider()
+crawler.spider().then(data => {
+  console.log('result', data)
+  crawler.close()
+})

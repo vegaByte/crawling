@@ -62,3 +62,6 @@ typings/
 
 screen.png
 result.html
+
+cache/*
+!cache/.keep
