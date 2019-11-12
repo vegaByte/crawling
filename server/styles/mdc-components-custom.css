@@ -1,6 +1,6 @@
 :root {
-  --mdc-theme-primary: #4db6ac;
-  --mdc-theme-secondary: #43a047;
+  --mdc-theme-primary: #512da8;
+  --mdc-theme-secondary: #7b1fa2;
 }
 
 .mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
