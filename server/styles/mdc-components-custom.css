@@ -1,0 +1,8 @@
+:root {
+  --mdc-theme-primary: #4db6ac;
+  --mdc-theme-secondary: #43a047;
+}
+
+.mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
+  color: var(--mdc-theme-primary);
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Trip</title>
+  <!-- Required styles for MDC Web -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="./styles/mdc-components-custom.css">
+  <link rel="stylesheet" type="text/css" href="./styles/main.css">
+</head>
+<body class="mdc-typhography">
+  <header class=" mdc-top-app-bar mdc-top-app-bar--prominent">
+    <div class="mdc-top-app-bar__row">
+      <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+        <button class="mdc-icon-button material-icons mdc-top-app-bar__navigation-icon--unbounded">menu</button><span class="mdc-top-app-bar__title">Find my trip</span> </section>
+      <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
+        <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded" aria-label="Download">file_download</button>
+        <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded" aria-label="Print this page">print</button>
+        <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded" aria-label="Bookmark this page">bookmark</button>
+      </section>
+    </div>
+  </header>
+
+  <main class="center">
+    <form class="form-container wrapper mdc-elevation--z1">
+      <div class="mdc-text-field mdc-text-field--outlined">
+        <input class="mdc-text-field__input" id="text-field-hero-input">
+        <div class="mdc-notched-outline">
+          <div class="mdc-notched-outline__leading"></div>
+          <div class="mdc-notched-outline__notch">
+            <label for="text-field-hero-input" class="mdc-floating-label">Origin</label>
+          </div>
+          <div class="mdc-notched-outline__trailing"></div>
+        </div>
+      </div>
+
+      <div class="mdc-text-field mdc-text-field--outlined">
+        <input class="mdc-text-field__input" id="text-field-hero-input">
+        <div class="mdc-notched-outline">
+          <div class="mdc-notched-outline__leading"></div>
+          <div class="mdc-notched-outline__notch">
+            <label for="text-field-hero-input" class="mdc-floating-label">Destination</label>
+          </div>
+          <div class="mdc-notched-outline__trailing"></div>
+        </div>
+      </div>
+
+      <div class="mdc-text-field mdc-text-field--outlined">
+        <input class="mdc-text-field__input" id="text-field-hero-input">
+        <div class="mdc-notched-outline">
+          <div class="mdc-notched-outline__leading"></div>
+          <div class="mdc-notched-outline__notch">
+            <label for="text-field-hero-input" class="mdc-floating-label">Date</label>
+          </div>
+          <div class="mdc-notched-outline__trailing"></div>
+        </div>
+      </div>
+
+      <button type="submit" class="mdc-fab mdc-fab--extended">
+        <span class="material-icons mdc-fab__icon">search</span>
+        <span class="mdc-fab__label">Search</span>
+      </button>
+    </form>
+
+
+  </main>
+
+  <!-- Required MDC Web JavaScript library -->
+  <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+  <script type="text/javascript" src="./js/mdc-loader.js"></script>
+
+  <script type="text/javascript">
+    const textFields = document.querySelectorAll('.mdc-text-field');
+    for ( let i = 0; textFields.length; i++ ){
+      const textFieldEl = textFields[i]
+      const textField = new mdc.textField.MDCTextField(textFieldEl);
+    }
+  </script>
+</body>
+</html>

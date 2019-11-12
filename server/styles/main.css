@@ -1,0 +1,37 @@
+body {
+  background-color: #f3f3f3;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  padding-top: 128px;
+}
+
+.center {
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 24px 36px;
+  background-color: white;
+}
+
+.form-container {
+  flex-direction: row;
+  display: flex;
+  flex: 1;
+  margin: 0 auto 24px auto;
+  border-radius: 0 0 20px 20px;
+  width: fit-content;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container .mdc-text-field {
+  margin-right: 8px;
+}
