@@ -12,7 +12,7 @@
   <header class=" mdc-top-app-bar mdc-top-app-bar--prominent">
     <div class="mdc-top-app-bar__row">
       <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-        <button class="mdc-icon-button material-icons mdc-top-app-bar__navigation-icon--unbounded">menu</button><span class="mdc-top-app-bar__title">Find my trip</span> </section>
+        <button class="mdc-icon-button material-icons mdc-top-app-bar__navigation-icon--unbounded">menu</button><span class="mdc-top-app-bar__title">Tripeando</span> </section>
       <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
         <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded" aria-label="Download">file_download</button>
       </section>
@@ -20,7 +20,7 @@
   </header>
 
   <main class="center">
-    <form class="form-container wrapper mdc-elevation--z16">
+    <form class="form-container wrapper mdc-elevation--z1">
       <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon">
         <i class="material-icons mdc-text-field__icon">arrow_upward</i>
         <input class="mdc-text-field__input" id="text-field-hero-input">
@@ -63,6 +63,26 @@
         <span class="mdc-fab__label">Search</span>
       </button>
     </form>
+
+    <section class="trips-container">
+      <div class="trip-card mdc-card">
+        <div class="mdc-card__primary-action" tabindex="0">
+          <div class="mdc-card__media mdc-card__media--square" style="background-image: url(&quot;https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg&quot;);"></div>
+          <div class="trip-price--container">
+            <div class="trip-price--text">
+              <h2 class="trip-price--text mdc-typography mdc-typography--headline6">$1500 MXN</h2>
+              <h3 class="trip-price--description mdc-typography mdc-typography--subtitle2">price can be change</h3>
+            </div>
+            <div class="trip-price--action">
+              <button class="mdc-button mdc-button--unelevated mdc-button--shaped">
+                <span class="mdc-button__ripple"></span>
+                Take it
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
 
   </main>
