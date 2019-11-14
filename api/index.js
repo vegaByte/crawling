@@ -16,7 +16,8 @@ const crawler = new Crawler({
     date: defaultTrip.date
   }),
   timeToLoad: reservamosConf.TIME_TO_LOAD,
-  selectors: reservamosConf.selectors
+  selectors: reservamosConf.selectors,
+  deserializer: reservamosConf.deserializer
 })
 
 crawler.spider().then(data => {

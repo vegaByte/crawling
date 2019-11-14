@@ -21,6 +21,7 @@ class Crawler {
     this.selectors = args.selectors
     this.timeToLoad = args.timeToLoad
     this.trip = args.trip
+    this.deserializer = args.deserializer
 
     this.page = null
     this.browser = null
@@ -114,7 +115,7 @@ class Crawler {
         const price = find(this, self.selectors.price)
         const iconType = find(this, self.selectors.iconType)
 
-        data = [...data, { title, image, price, iconType }]
+        data = [...data, self.deserializer({ title, image, price, iconType })]
       })
 
       self.data = data
