@@ -1,4 +1,5 @@
 const { Crawler } = require('./models/Crawler')
+const { FireStore } = require('./models/Firestore')
 const reservamosConf = require('./sites/reservamos').conf
 
 const defaultTrip = {
@@ -22,5 +23,10 @@ const crawler = new Crawler({
 
 crawler.spider().then(data => {
   console.log('result', data)
+
+  const store = new FireStore()
+  store.save(data)
+
   crawler.close()
 })
+
