@@ -2,6 +2,7 @@ const puppeteer = require('puppeteer');
 const $ = require('cheerio');
 const fs = require('fs');
 const sleep = require('../libs/helpers').sleep
+const cachePath = require('../conf').conf.cachePath
 
 
 // selectors: {
@@ -28,6 +29,7 @@ class Crawler {
     this.saveHtmlCache = this.saveHtmlCache.bind(this)
     this.saveJsonCache = this.saveJsonCache.bind(this)
     this.jsonFormat = this.jsonFormat.bind(this)
+    this.handleError = this.handleError.bind(this)
     this.spider = this.spider.bind(this)
     this.scrap = this.scrap.bind(this)
     this.close = this.close.bind(this)
@@ -35,8 +37,8 @@ class Crawler {
 
   saveHtmlCache(){
     return new Promise((resolve, reject) => {
-      fs.writeFile('cache/result.html', this.html, err => {
-        if ( err ) reject(err)
+      fs.writeFile(`${cachePath}/result.html`, this.html, {encoding: 'utf8', flag: 'w+'}, err => {
+        if ( err ) { reject(err); return }
         console.log('save html cache')
         resolve(this.html)
       })
@@ -57,12 +59,17 @@ class Crawler {
   saveJsonCache(){
     return new Promise((resolve, reject) => {
       const json = this.jsonFormat()
-      fs.writeFile('cache/result.json', json, err => {
-        if ( err ) reject(err)
+      fs.writeFile(`${cachePath}/result.json`, json, {encoding: 'utf8', flag: 'w+'}, err => {
+        if ( err ) { reject(err); return }
         console.log('save json cache')
         resolve(json)
       })
     })
+  }
+
+  handleError(nessage, err=''){
+    console.error(nessage, err)
+    this.close()
   }
 
   spider(){
@@ -82,7 +89,7 @@ class Crawler {
       })
       .then(html => {
         this.html = html
-        this.saveHtmlCache()
+        this.saveHtmlCache().catch(err => this.handleError('Error saving html cache', err))
         return this.scrap()
       })
       .catch(err => {
@@ -112,7 +119,7 @@ class Crawler {
 
       self.data = data
 
-      self.saveJsonCache()
+      self.saveJsonCache().catch(err => this.handleError('Error saving json cache', err))
       resolve(self.data)
     })
   }
